@@ -1,0 +1,49 @@
+{
+  "name": "vue-light-store",
+  "version": "0.1.0-dev.0",
+  "description": "Simple Vue store with support of modules",
+  "main": "dist/Store.js",
+  "scripts": {
+    "build": "babel src -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fenivana/vue-light-store.git"
+  },
+  "keywords": [
+    "vue",
+    "store"
+  ],
+  "author": "Jiang Fengming",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fenivana/vue-light-store/issues"
+  },
+  "homepage": "https://github.com/fenivana/vue-light-store#readme",
+  "devDependencies": {
+    "babel-cli": "6.24.1",
+    "babel-plugin-add-module-exports": "0.2.1",
+    "babel-preset-env": "1.5.1",
+    "babel-preset-stage-2": "6.24.1",
+    "eslint": "3.19.0",
+    "eslint-config-enough": "0.2.6"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "loose": true,
+          "modules": "umd"
+        }
+      ],
+      "stage-2"
+    ],
+    "plugins": [
+      "add-module-exports"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "enough"
+  }
+}
