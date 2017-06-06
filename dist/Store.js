@@ -25,13 +25,13 @@
     _class.install = function install(Vue) {
       Vue.mixin({
         data: function data() {
-          return {
-            $state: this.$root.$options.store.$state
-          };
+          return this.$root.$options.store ? { $state: this.$root.$options.store.$state } : {};
         },
         created: function created() {
-          this.$store = this.$root.$options.store;
-          this.$state = this.$store.$state;
+          if (this.$root.$options.store) {
+            this.$store = this.$root.$options.store;
+            this.$state = this.$store.$state;
+          }
         }
       });
     };

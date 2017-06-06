@@ -2,14 +2,14 @@ export default class {
   static install(Vue) {
     Vue.mixin({
       data() {
-        return {
-          $state: this.$root.$options.store.$state
-        }
+        return this.$root.$options.store ? { $state: this.$root.$options.store.$state } : {}
       },
 
       created() {
-        this.$store = this.$root.$options.store
-        this.$state = this.$store.$state
+        if (this.$root.$options.store) {
+          this.$store = this.$root.$options.store
+          this.$state = this.$store.$state
+        }
       }
     })
   }
