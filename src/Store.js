@@ -22,7 +22,7 @@ export default class {
 
       this[m] = {}
       for (const fn in modules[m].methods) {
-        this[m][fn] = modules[m].methods[fn].bind(modules[m])
+        this[m][fn] = modules[m].methods[fn] = modules[m].methods[fn].bind(modules[m])
       }
     }
   }
