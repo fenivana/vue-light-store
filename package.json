@@ -1,6 +1,6 @@
 {
   "name": "vue-light-store",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Simple Vue store with support of modules",
   "main": "dist/Store.js",
   "scripts": {

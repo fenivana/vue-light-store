@@ -42,11 +42,12 @@
       this.$state = {};
 
       for (var m in modules) {
-        this.$state[m] = modules[m].state;
+        var mod = {};
+        this.$state[m] = mod.$state = modules[m].state();
 
         this[m] = {};
         for (var fn in modules[m].methods) {
-          this[m][fn] = modules[m].methods[fn] = modules[m].methods[fn].bind(modules[m]);
+          this[m][fn] = mod[fn] = modules[m].methods[fn].bind(mod);
         }
       }
     }

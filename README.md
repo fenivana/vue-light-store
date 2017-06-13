@@ -18,8 +18,8 @@ See file `examples/index.html`:
   <p>Use <code>$state.MODULE.SOME_STATE</code> to access the state.</p>
   <p>Use <code>$store.MODULE.METHOD</code> to call the method.</p>
 
-  <p>$state.moduleFoo.a: {{$state.moduleFoo.a}} <button @click="$store.moduleFoo.incA">$store.moduleFoo.incA()</button></p>
-  <p>$state.moduleBar.c: {{$state.moduleBar.c}} <button @click="$store.moduleBar.incC">$store.moduleBar.incC()</button></p>
+  <p>$state.moduleFoo.a: {{$state.moduleFoo.a}}; $state.moduleFoo.b: {{$state.moduleFoo.b}} <button @click="$store.moduleFoo.inc">$store.moduleFoo.inc()</button></p>
+  <p>$state.moduleBar.c: {{$state.moduleBar.c}} <button @click="$store.moduleBar.inc">$store.moduleBar.inc()</button></p>
   <p><button @click="reset">reset</button></p>
 </div>
 
@@ -29,26 +29,35 @@ Vue.use(Store)
 const store = new Store({
   // define some modules
   moduleFoo: {
-    state: {
+    state: () => ({
       a: 1,
       b: 2
-    },
+    }),
 
     methods: {
-      incA() {
-        this.state.a++ // this refers to the module
+      inc() {
+        // this refers to the module
+        // access state via this.$state
+        this.$state.a++
+
+        // access other methods
+        this.incB()
+      },
+
+      incB() {
+        this.$state.b++
       }
     }
   },
 
   moduleBar: {
-    state: {
+    state: () => ({
       c: 3
-    },
+    }),
 
     methods: {
-      incC() {
-        this.state.c++
+      inc() {
+        this.$state.c++
       }
     }
   }
@@ -64,7 +73,7 @@ new Vue({
       this.$store.$setState({
         moduleFoo: {
           a: 0,
-          b: 0
+          b: 1
         },
 
         moduleBar: {

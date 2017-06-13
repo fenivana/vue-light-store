@@ -18,11 +18,12 @@ export default class {
     this.$state = {}
 
     for (const m in modules) {
-      this.$state[m] = modules[m].state
+      const mod = {}
+      this.$state[m] = mod.$state = modules[m].state()
 
       this[m] = {}
       for (const fn in modules[m].methods) {
-        this[m][fn] = modules[m].methods[fn] = modules[m].methods[fn].bind(modules[m])
+        this[m][fn] = mod[fn] = modules[m].methods[fn].bind(mod)
       }
     }
   }
