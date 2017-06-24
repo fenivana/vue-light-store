@@ -27,7 +27,7 @@
         data: function data() {
           return this.$root.$options.store ? { $state: this.$root.$options.store.$state } : {};
         },
-        created: function created() {
+        beforeCreate: function beforeCreate() {
           if (this.$root.$options.store) {
             this.$store = this.$root.$options.store;
             this.$state = this.$store.$state;

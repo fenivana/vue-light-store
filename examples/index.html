@@ -61,6 +61,10 @@ new Vue({
   el: '#app',
   store,
 
+  data() {
+    console.log(this.$state)
+  },
+
   methods: {
     reset() {
       // store.$setState(state) will merge the state into store.$state

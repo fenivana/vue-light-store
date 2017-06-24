@@ -5,7 +5,7 @@ export default class {
         return this.$root.$options.store ? { $state: this.$root.$options.store.$state } : {}
       },
 
-      created() {
+      beforeCreate() {
         if (this.$root.$options.store) {
           this.$store = this.$root.$options.store
           this.$state = this.$store.$state
