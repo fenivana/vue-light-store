@@ -18,7 +18,7 @@ export default class {
     this.$state = {}
 
     for (const m in modules) {
-      const mod = {}
+      const mod = { $root: this }
       this.$state[m] = mod.$state = modules[m].state()
 
       this[m] = {}

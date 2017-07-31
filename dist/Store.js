@@ -42,7 +42,7 @@
       this.$state = {};
 
       for (var m in modules) {
-        var mod = {};
+        var mod = { $root: this };
         this.$state[m] = mod.$state = modules[m].state();
 
         this[m] = {};
