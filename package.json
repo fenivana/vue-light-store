@@ -1,6 +1,6 @@
 {
   "name": "vue-light-store",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Simple Vue store with support of modules",
   "main": "dist/Store.js",
   "scripts": {
@@ -21,11 +21,11 @@
   },
   "homepage": "https://github.com/fenivana/vue-light-store#readme",
   "devDependencies": {
-    "babel-cli": "6.24.1",
-    "babel-plugin-add-module-exports": "0.2.1",
-    "babel-preset-env": "1.6.0",
-    "babel-preset-stage-2": "6.24.1",
-    "eslint": "4.3.0",
+    "babel-cli": "^6.24.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^4.3.0",
     "eslint-config-enough": "^0.2.8"
   },
   "babel": {
