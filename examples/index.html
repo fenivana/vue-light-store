@@ -63,6 +63,13 @@ new Vue({
 
   data() {
     console.log(this.$state)
+    return {}
+  },
+
+  watch: {
+    '$state.moduleFoo.a'(v) {
+      console.log(v)
+    }
   },
 
   methods: {

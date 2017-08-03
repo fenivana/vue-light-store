@@ -24,13 +24,18 @@
   var _class = function () {
     _class.install = function install(Vue) {
       Vue.mixin({
-        data: function data() {
-          return this.$root.$options.store ? { $state: this.$root.$options.store.$state } : {};
-        },
         beforeCreate: function beforeCreate() {
           if (this.$root.$options.store) {
             this.$store = this.$root.$options.store;
-            this.$state = this.$store.$state;
+
+            if (this.$root === this) {
+              // make state reactive
+              this.$state = new Vue({
+                data: { state: this.$store.$state }
+              }).state;
+            } else {
+              this.$state = this.$root.$state;
+            }
           }
         }
       });
