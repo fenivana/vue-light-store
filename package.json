@@ -2,9 +2,10 @@
   "name": "vue-light-store",
   "version": "0.2.4",
   "description": "Simple Vue store with support of modules",
-  "main": "dist/Store.js",
+  "main": "dist/Store.umd.js",
+  "module": "dist/Store.esm.js",
   "scripts": {
-    "build": "babel src -d dist"
+    "build": "rollup -c rollup.config.esm.js && rollup -c rollup.config.umd.js"
   },
   "repository": {
     "type": "git",
@@ -21,12 +22,13 @@
   },
   "homepage": "https://github.com/fenivana/vue-light-store#readme",
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-stage-2": "^6.24.1",
-    "eslint": "^4.3.0",
-    "eslint-config-enough": "^0.2.8"
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^4.19.1",
+    "eslint-config-enough": "^0.3.1",
+    "rollup": "^0.58.2",
+    "rollup-plugin-babel": "^3.0.4"
   },
   "babel": {
     "presets": [
@@ -34,13 +36,12 @@
         "env",
         {
           "loose": true,
-          "modules": "umd"
+          "modules": false
         }
-      ],
-      "stage-2"
+      ]
     ],
     "plugins": [
-      "add-module-exports"
+      "external-helpers"
     ]
   },
   "eslintConfig": {

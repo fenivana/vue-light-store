@@ -1,25 +1,14 @@
 (function (global, factory) {
-  if (typeof define === "function" && define.amd) {
-    define(["module", "exports"], factory);
-  } else if (typeof exports !== "undefined") {
-    factory(module, exports);
-  } else {
-    var mod = {
-      exports: {}
-    };
-    factory(mod, mod.exports);
-    global.Store = mod.exports;
-  }
-})(this, function (module, exports) {
-  "use strict";
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global.Store = factory());
+}(this, (function () { 'use strict';
 
-  exports.__esModule = true;
-
-  function _classCallCheck(instance, Constructor) {
+  var classCallCheck = function (instance, Constructor) {
     if (!(instance instanceof Constructor)) {
       throw new TypeError("Cannot call a class as a function");
     }
-  }
+  };
 
   var _class = function () {
     _class.install = function install(Vue) {
@@ -42,7 +31,7 @@
     };
 
     function _class(modules) {
-      _classCallCheck(this, _class);
+      classCallCheck(this, _class);
 
       this.$state = {};
 
@@ -66,6 +55,6 @@
     return _class;
   }();
 
-  exports.default = _class;
-  module.exports = exports["default"];
-});
+  return _class;
+
+})));
