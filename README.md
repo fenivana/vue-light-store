@@ -1,5 +1,5 @@
 # vue-light-store
-Simple Vue store with support of modules
+A simple Vue store.
 
 ## Usage
 See file `examples/index.html`:
@@ -8,15 +8,15 @@ See file `examples/index.html`:
 <html>
 <head>
 <meta charset="utf-8">
-<script src="https://unpkg.com/vue"></script>
-<script src="../dist/Store.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="../dist/VueLightStore.js"></script>
 </head>
 
 <body>
 <div id="app">
   <p>The plugin will inject two properties into vue instance: <code>$store</code> and <code>$state</code>.</p>
   <p>Use <code>$state.MODULE.SOME_STATE</code> to access the state.</p>
-  <p>Use <code>$store.MODULE.METHOD</code> to call the method.</p>
+  <p>Use <code>$store.MODULE.METHOD()</code> to call the method.</p>
 
   <p>$state.moduleFoo.a: {{$state.moduleFoo.a}}; $state.moduleFoo.b: {{$state.moduleFoo.b}} <button @click="$store.moduleFoo.inc">$store.moduleFoo.inc()</button></p>
   <p>$state.moduleBar.c: {{$state.moduleBar.c}} <button @click="$store.moduleBar.inc">$store.moduleBar.inc()</button></p>
@@ -24,9 +24,9 @@ See file `examples/index.html`:
 </div>
 
 <script>
-Vue.use(Store)
+Vue.use(VueLightStore)
 
-const store = new Store({
+const store = new VueLightStore({
   // define some modules
   moduleFoo: {
     state: () => ({
@@ -87,3 +87,6 @@ new Vue({
 </body>
 </html>
 ```
+
+## License
+[MIT](license)
